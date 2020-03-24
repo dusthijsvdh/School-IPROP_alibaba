@@ -2,13 +2,13 @@ public class Bedrijf {
     // Dit heeft elk bedrijf
     private String naam;
     private Voorraad voorraad;
-    private String locatie;
+    private Adres adres;
 
     // Constructor
-    public Bedrijf(String naam, Voorraad voorraad, String locatie) {
+    public Bedrijf(String naam, Voorraad voorraad, Adres adres) {
         this.naam = naam;
         this.voorraad = voorraad;
-        this.locatie = locatie;
+        this.adres = adres;
     }
 
     // Krijg de voorraad
