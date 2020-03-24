@@ -1,3 +1,5 @@
+package classes;
+
 public class Adres {
     // De eigenschappen van een adres
     public String land;

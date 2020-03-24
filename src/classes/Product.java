@@ -1,3 +1,5 @@
+package classes;
+
 public class Product {
     // Dit heeft elk product
     private String naam;

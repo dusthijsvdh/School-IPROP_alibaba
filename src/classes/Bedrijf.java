@@ -1,3 +1,5 @@
+package classes;
+
 public class Bedrijf {
     // Dit heeft elk bedrijf
     private String naam;

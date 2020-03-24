@@ -1,3 +1,5 @@
+package classes;
+
 public class Klant {
     // Moet elke klant hebben
     private String naam;
