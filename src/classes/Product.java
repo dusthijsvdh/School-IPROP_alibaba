@@ -18,4 +18,8 @@ public class Product {
     public void setGewicht(float gewicht) {
         this.gewicht = gewicht;
     }
+
+    public String getNaam() {
+        return naam;
+    }
 }
