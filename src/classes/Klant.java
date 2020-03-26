@@ -20,4 +20,12 @@ public class Klant {
     public void setTelefoonnummer(String telefoonnummer) {
         this.telefoonnummer = telefoonnummer;
     }
+
+    public Adres getAdres(){
+        return this.adres;
+    }
+
+    public String getNaam() {
+        return naam;
+    }
 }

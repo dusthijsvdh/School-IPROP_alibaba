@@ -17,4 +17,8 @@ public class Bedrijf {
     public Voorraad getVoorraad() {
         return this.voorraad;
     }
+
+    public Adres getAdres() {
+        return this.adres;
+    }
 }

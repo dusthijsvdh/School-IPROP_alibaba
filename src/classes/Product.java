@@ -22,4 +22,8 @@ public class Product {
     public String getNaam() {
         return naam;
     }
+
+    public float getPrijs() {
+        return prijs;
+    }
 }

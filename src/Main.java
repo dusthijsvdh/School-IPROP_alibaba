@@ -1,14 +1,50 @@
-import classes.Adres;
-import managers.AdresManager;
+import classes.*;
+
+import managers.BestellingManager;
+import managers.VoorraadManager;
+
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Here begins the story of a great package");
+        Product product1 = new Product("Le intern developer", 2000);
+        Product product2 = new Product("Le aardbeien", 15);
+        Product product3 = new Product("Le aardappels", 10);
 
-        Adres leverancier = new Adres("netherlands", "Zuid-Holland", "Alphen aan den Rijn","Zeewinde", 90);
-        Adres klant = new Adres("United States", "Ohio", "Loser Town", "Winners Street", 69);
+        Voorraad bedrijfVoorraad = new Voorraad();
+        bedrijfVoorraad.addProduct(product1);
+        bedrijfVoorraad.addProduct(product2);
+        bedrijfVoorraad.addProduct(product3);
 
-        int geschatteLevertijd = AdresManager.BerekenLevertijd(leverancier, klant);
-        System.out.println("Our package wil travel far and wide, but he wil return in " + geschatteLevertijd + " days!");
+        VoorraadManager.bekijkVoorraad(bedrijfVoorraad);
+
+        Klant klant = new Klant("Thijs", "Yeet@yeet.com", new Adres("Nederland", "Zuid-Holland", "Alphen aan den Rijn", "Zeewinde", 90));
+        Bedrijf bedrijf = new Bedrijf("Yeetco", bedrijfVoorraad, new Adres("Nederland", "Zuid-Holland", "Alphen aan den Rijn", "yeetlaan", 69));
+
+        Bestelling bestelling = new Bestelling(1, klant, bedrijf);
+        bestelling.addProduct(product1);
+        bestelling.addProduct(product2);
+        bestelling.addProduct(product3);
+
+        BestellingManager.bekijkBestelling(bestelling);
+
+        System.out.println("Dit kunnen we kopen: ");
+        ArrayList<Product> kopen = BestellingManager.kanKopen(bestelling, bedrijfVoorraad);
+        for(Product product : kopen) {
+            System.out.println(product.getNaam());
+        }
+
+        clearScreen();
+        BestellingManager.koopProducten(bestelling, bedrijfVoorraad);
+    }
+
+    public static void clearScreen() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Druk op enter om door te gaan : ");
+        scanner.nextLine();
+        for (int i = 0; i < 200; i++) {
+            System.out.println("");
+        }
     }
 }
