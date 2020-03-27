@@ -5,15 +5,17 @@ public class Klant {
     private String naam;
     private String email;
     private Adres adres;
+    private float vermogen;
 
     // Mag een klant hebben
     private String telefoonnummer;
 
     // Constructor
-    public Klant(String naam, String email, Adres adres) {
+    public Klant(String naam, String email, Adres adres, float vermogen) {
         this.naam = naam;
         this.email = email;
         this.adres = adres;
+        this.vermogen = vermogen;
     }
 
     // Geef de klant een telefoonnummer
@@ -26,6 +28,22 @@ public class Klant {
     }
 
     public String getNaam() {
-        return naam;
+        return this.naam;
+    }
+
+    public float getVermogen() {
+        return this.vermogen;
+    }
+
+    public void betalen(float bedrag) {
+        this.vermogen -= bedrag;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public String getTelefoonnummer() {
+        return this.telefoonnummer;
     }
 }

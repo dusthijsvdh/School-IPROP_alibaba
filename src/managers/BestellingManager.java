@@ -37,7 +37,31 @@ public class BestellingManager {
             }
             wilKopen = wilKopen();
         }
-        System.out.println(wilKopen);
+
+        if (wilKopen) {
+            //TODO check genoeg crediet van klant
+            if (KlantManager.heeftGenoegGeld(bestelling)) {
+                ArrayList<Product> voorraadBedrijf = bestelling.getLeverancier().getVoorraad().getProducten();
+                for (Product bestellingProduct : bestelling.getProducten()) {
+                    voorraadBedrijf = ProductManager.verwijderProduct(voorraadBedrijf, bestellingProduct.getNaam());
+                }
+
+                //TODO yeetus deluts voorraad
+                bestelling.getLeverancier().setProducten(voorraadBedrijf);
+                VoorraadManager.bekijkVoorraad(bestelling.getLeverancier().getVoorraad());
+
+                //TODO Haal geld van klant en zet over naar bedrijf
+                bestelling.getKlant().betalen(bestelling.getTotaleStonks());
+                bestelling.getLeverancier().addStonks(bestelling.getTotaleStonks());
+
+                //TODO Laat de klant de levertijd zien
+                System.out.println("Uw bestelling is geplaats.");
+                System.out.println("Uw bestelling komt aan over: " + bestelling.getGeschatteLevertijdInDagen() + " dag(en).");
+            } else {
+                System.out.println("U heeft niet genoeg geld om deze bestelling te plaatsen.");
+                System.out.println("Uw balans is: " + bestelling.getKlant().getVermogen() + ",terwijl de bestelling: " + bestelling.getTotaleStonks() + " kost.");
+            }
+        }
     }
 
     public static boolean wilKopen() {

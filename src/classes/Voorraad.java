@@ -14,4 +14,8 @@ public class Voorraad {
     public ArrayList<Product> getProducten() {
         return this.producten;
     }
+
+    public void setProducten(ArrayList<Product> producten) {
+        this.producten = producten;
+    }
 }

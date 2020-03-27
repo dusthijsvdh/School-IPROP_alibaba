@@ -34,22 +34,29 @@ public class Bestelling {
     public void removeProduct(Product product) {
         try {
             this.producten = ProductManager.verwijderProduct(this.producten, product.getNaam());
+            totaleStonks -= product.getPrijs();
         } catch (Exception e) {
             System.out.println("Je probeerde een product te verwijderen die niet in de bestelling staat!");
         }
     }
 
     public ArrayList<Product> getProducten(){
-        return producten;
+        return this.producten;
     }
 
     public Klant getKlant() {
-        return klant;
+        return this.klant;
     }
 
     public int getGeschatteLevertijdInDagen() {
-        return geschatteLevertijdInDagen;
+        return this.geschatteLevertijdInDagen;
     }
 
+    public float getTotaleStonks() {
+        return this.totaleStonks;
+    }
 
+    public Bedrijf getLeverancier() {
+        return this.leverancier;
+    }
 }
