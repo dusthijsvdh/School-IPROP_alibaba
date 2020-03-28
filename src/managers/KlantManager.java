@@ -11,7 +11,7 @@ public class KlantManager {
         System.out.println("Het vermogen van deze klant is: " + klant.getVermogen());
     }
 
-    public static boolean heeftGenoegGeld(Bestelling bestelling) {
-        return bestelling.getKlant().getVermogen() >= bestelling.getTotaleStonks();
-    }
+//    public static boolean heeftGenoegGeld(Bestelling bestelling) {
+//        return bestelling.getKlant().getVermogen() >= bestelling.getTotaleStonks();
+//    }
 }

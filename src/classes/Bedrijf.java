@@ -37,4 +37,8 @@ public class Bedrijf {
     public void addStonks(float bedrag) {
         this.omzet += bedrag;
     }
+
+    public String getNaam() {
+        return this.naam;
+    }
 }

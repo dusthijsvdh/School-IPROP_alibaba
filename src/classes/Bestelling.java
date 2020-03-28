@@ -1,5 +1,6 @@
 package classes;
 
+import Core.Main;
 import managers.AdresManager;
 import managers.ProductManager;
 
@@ -7,22 +8,18 @@ import java.util.ArrayList;
 
 public class Bestelling {
     // Dit heeft elke bestelling
-    private int id;
-    private Klant klant;
-    private Bedrijf leverancier;
+    private int klantId;
+    private int leverancierId;
     private int geschatteLevertijdInDagen;
 
     // Dit verschilt per bestelling
     private ArrayList<Product> producten = new ArrayList<Product>();
-
     private float totaleStonks = 0.0f;
 
     // Constructor
-    public Bestelling(int id, Klant klant, Bedrijf leverancier) {
-        this.id = id;
-        this.klant = klant;
-        this.leverancier = leverancier;
-        this.geschatteLevertijdInDagen = AdresManager.BerekenLevertijd(leverancier.getAdres(), klant.getAdres());
+    public Bestelling(int klantId, int leverancierId) {
+        this.klantId = klantId;
+        this.leverancierId = leverancierId;
     }
 
     // Voeg een product toe
@@ -31,6 +28,7 @@ public class Bestelling {
         totaleStonks += product.getPrijs();
     }
 
+    // Verwijder een product
     public void removeProduct(Product product) {
         try {
             this.producten = ProductManager.verwijderProduct(this.producten, product.getNaam());
@@ -40,14 +38,19 @@ public class Bestelling {
         }
     }
 
+    // Specificeer de geschatte levertijd in dagen
+    public void setGeschatteLevertijdInDagen(int geschatteLevertijdInDagen) {
+        this.geschatteLevertijdInDagen = geschatteLevertijdInDagen;
+    }
+
     public ArrayList<Product> getProducten(){
         return this.producten;
     }
-
-    public Klant getKlant() {
-        return this.klant;
-    }
-
+//
+//    public Klant getKlantId() {
+//        return this.klantId;
+//    }
+//
     public int getGeschatteLevertijdInDagen() {
         return this.geschatteLevertijdInDagen;
     }
@@ -55,8 +58,8 @@ public class Bestelling {
     public float getTotaleStonks() {
         return this.totaleStonks;
     }
-
-    public Bedrijf getLeverancier() {
-        return this.leverancier;
-    }
+//
+//    public Bedrijf getLeverancier() {
+//        return this.leverancier;
+//    }
 }

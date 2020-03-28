@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5398d413-72f4-4bc5-9325-396316e12685" name="Default Changelist" comment="">
+    <list default="true" id="8533163b-d5c9-4133-92e0-91847c58a60a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/managers/MainManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Bedrijf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Bedrijf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Bestelling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Bestelling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/managers/BestellingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/BestellingManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/managers/KlantManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/KlantManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,13 +28,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/classes/Bedrijf.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/classes/Klant.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/Core/Main.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/classes/Bestelling.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/managers/MainManager.java" root0="SKIP_INSPECTION" />
   </component>
-  <component name="ProjectId" id="1ZZo5u0DsvA1UkDESubzkxoJb3I" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectId" id="1ZkVghfVocPrgcjjVMXncNXeb6Q" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -46,7 +52,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="MAIN_CLASS_NAME" value="Core.Main" />
       <module name="iprop-alibaba" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -63,12 +69,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5398d413-72f4-4bc5-9325-396316e12685" name="Default Changelist" comment="" />
-      <created>1585055796901</created>
+      <changelist id="8533163b-d5c9-4133-92e0-91847c58a60a" name="Default Changelist" comment="" />
+      <created>1585383191093</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1585055796901</updated>
-      <workItem from="1585055799644" duration="2956000" />
+      <updated>1585383191093</updated>
+      <workItem from="1585383194474" duration="15571000" />
     </task>
     <servers />
   </component>
@@ -76,17 +82,41 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="198" key="#Inspections" timestamp="1585056593934">
+    <state x="552" y="178" key="#Inspections" timestamp="1585384219352">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="198" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1585056593934" />
-    <state x="765" y="255" key="#com.intellij.ide.util.MemberChooser" timestamp="1585057326876">
+    <state x="552" y="178" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1585384219352" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585383275462">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="255" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585057326876" />
-    <state x="656" y="138" width="607" height="804" key="find.popup" timestamp="1585056002684">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585383275462" />
+    <state width="1876" height="304" key="GridCell.Tab.0.bottom" timestamp="1585405547628">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="138" width="607" height="804" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585056002684" />
+    <state width="1876" height="304" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585405547628" />
+    <state width="1876" height="304" key="GridCell.Tab.0.center" timestamp="1585405547628">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="304" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585405547628" />
+    <state width="1876" height="304" key="GridCell.Tab.0.left" timestamp="1585405547628">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="304" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585405547628" />
+    <state width="1876" height="304" key="GridCell.Tab.0.right" timestamp="1585405547628">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="304" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585405547628" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1585383595217">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585383595217" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1585405437540">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585405437540" />
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1585389409102">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585389409102" />
   </component>
 </project>
