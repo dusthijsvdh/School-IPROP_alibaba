@@ -1,9 +1,11 @@
 package managers;
 
-import classes.*;
+import classes.Bedrijf;
+import classes.Klant;
+import classes.Product;
+import classes.Voorraad;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class MainManager {
@@ -27,20 +29,20 @@ public class MainManager {
         return id - 1;
     }
 
+//    public static ArrayList<Product> productenKiezen(Klant klant, ArrayList<Bedrijf> bedrijven) {
+//        ArrayList<Product> winkelwagen = new ArrayList<Product>();
+//        String antwoord;
+//        Scanner s = new Scanner(System.in);
+//        do {
+//            Product product = MainManager.kiesProduct(klant, bedrijven);
+//            Bedrijf bedrijf = MainManager.kiesBedrijf(klant, bedrijven, product.getNaam());
+//            System.out.print("Wilt u nog iets bestellen? (Y/N) : ");
+//            antwoord = s.nextLine().toLowerCase();
+//        } while(!antwoord.equals("n"));
+//        return winkelwagen;
+//    }
+
     public static ArrayList<Bedrijf> bedrijfsBerichten(ArrayList<Bedrijf> bedrijven, String productNaam) {
-//        ArrayList<String> messages = new ArrayList<String>();
-//        for(Bedrijf bedrijf : bedrijven) {
-//            Voorraad voorraad = bedrijf.getVoorraad();
-//            ArrayList<Product> producten = voorraad.getProducten();
-//            for(Product product : producten) {
-//                if(product.getNaam() == productNaam) {
-//                    int geschatteLevertijd = AdresManager.BerekenLevertijd(bedrijf.getAdres(), klant.getAdres());
-//                    String message = bedrijf.getNaam() + ", €" + product.getPrijs() + ", met als geschatte levertijd " + geschatteLevertijd + " dagen.";
-//                    messages.add(message);
-//                }
-//            }
-//        }
-//        return messages;
         ArrayList<Bedrijf> bedrijvenDieHetHebben = new ArrayList<Bedrijf>();
         for(Bedrijf bedrijf : bedrijven) {
             Voorraad voorraad = bedrijf.getVoorraad();
@@ -51,7 +53,7 @@ public class MainManager {
                 }
             }
         }
-        return bedrijven;
+        return bedrijvenDieHetHebben;
     }
 
     // Print alle producten 1 keer, laat daarna de bedrijven zien die het verkopen, met de prijzen en de levertijden
@@ -106,6 +108,7 @@ public class MainManager {
             for(Product product : producten) {
                 if(product.getNaam() == productNaam) {
                     System.out.println((j + 1) + " : " + bedijvenDieHetHebben.get(j).getNaam() + ", €" + product.getPrijs() + ", met als geschatte levertijd " + geschatteLevertijd + " dagen.");
+
                 }
             }
         }

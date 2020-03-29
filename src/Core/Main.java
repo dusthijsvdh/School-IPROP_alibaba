@@ -1,13 +1,10 @@
 package Core;
 
 import classes.*;
-
 import managers.BestellingManager;
 import managers.MainManager;
-import managers.Shopping;
-import managers.VoorraadManager;
+import managers.ProductManager;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -84,67 +81,66 @@ public class Main {
 
 
         ArrayList<Product> totaleVoorraad = MainManager.getTotaleVoorraad(bedrijven);
-        Product product = MainManager.kiesProduct(klant, bedrijven);
+        ArrayList<Bedrijf> bedrijfsVoorraad = bedrijven;
+//        ArrayList<Product> winkelwagen = MainManager.productenKiezen(klant, bedrijven);
+        ArrayList<Product> winkelwagen = new ArrayList<Product>();
+        ArrayList<Bedrijf> gekozenBedrijven = new ArrayList<Bedrijf>();
+        String antwoord;
+        Scanner s = new Scanner(System.in);
+        do {
+            Product gekozenProduct = MainManager.kiesProduct(klant, bedrijfsVoorraad);
+            Bedrijf gekozenBedrijf = MainManager.kiesBedrijf(klant, bedrijfsVoorraad, gekozenProduct.getNaam());
+            gekozenBedrijven.add(gekozenBedrijf);
+            Product product = new Product("", 0.0f);
+            for (int i = 0; i < bedrijfsVoorraad.size(); i++) {
+                if (bedrijfsVoorraad.get(i).getNaam() == gekozenBedrijf.getNaam()) {
+                    Voorraad voorraad = bedrijfsVoorraad.get(i).getVoorraad();
+                    ArrayList<Product> bedrijfsProducten = voorraad.getProducten();
+                    for (Product bedrijfProduct : bedrijfsProducten) {
+                        if (bedrijfProduct.getNaam() == gekozenProduct.getNaam()) {
+                            winkelwagen.add(bedrijfProduct);
+                            ArrayList<Product> nieuweProducten = ProductManager.verwijderProduct(bedrijfsProducten, gekozenProduct.getNaam());
+//                            voorraad.setProducten(nieuweProducten);
+//                            bedrijfsVoorraad.get(i).setVoorraad(voorraad);
+                        }
+                    }
+                }
+            }
+//            for (int i = 0; i < bedrijfsVoorraad.size(); i++) {
+//                if (bedrijfsVoorraad.get(i).getNaam() == gekozenBedrijf.getNaam()) {
+//                    Voorraad voorraad = bedrijfsVoorraad.get(i).getVoorraad();
+//                    ArrayList<Product> producten = ProductManager.verwijderProduct(voorraad.getProducten(), gekozenProduct.getNaam());
+//                    voorraad.setProducten(producten);
+//                    bedrijfsVoorraad.get(i).setVoorraad(voorraad);
+//                }
+//            }
+            System.out.print("Wilt u nog iets bestellen? (Y/N) : ");
+            antwoord = s.nextLine().toLowerCase();
+        } while (!antwoord.equals("n"));
+        int klantId = 0;
+        for (int i = 0; i < klanten.size(); i++) {
+            if (klant.getEmail() == klanten.get(i).getEmail() && klant.getNaam() == klanten.get(i).getNaam()) {
+                klantId = i;
+            }
+        }
+        System.out.println(klantId);
+        Bestelling bestelling = new Bestelling(klantId, gekozenBedrijven);
+        for (Product product : winkelwagen) {
+            bestelling.addProduct(product);
+        }
+
+        BestellingManager.bekijkBestelling(bestelling);
+
+
+//        Product product = MainManager.kiesProduct(klant, bedrijven);
+//        Bedrijf bedrijf = MainManager.kiesBedrijf(klant, bedrijven, product.getNaam());
+
+//        Product product = MainManager.kiesProduct(klant, bedrijven);
 //        System.out.println(product.getNaam());
-        Bedrijf bedrijf = MainManager.kiesBedrijf(klant, bedrijven, product.getNaam());
-        System.out.println(bedrijf.getNaam());
+//        Bedrijf bedrijf = MainManager.kiesBedrijf(klant, bedrijven, product.getNaam());
+//        System.out.println(bedrijf.getNaam());
 //        MainManager.printTotaleVoorraad(totaleVoorraad);
     }
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        Product product1 = new Product("Le intern developer", 2000);
-//        Product product2 = new Product("Le aardbeien", 15);
-//        Product product3 = new Product("Le aardappels", 10);
-//
-//        Voorraad bedrijfVoorraad = new Voorraad();
-//        bedrijfVoorraad.addProduct(product1);
-//        bedrijfVoorraad.addProduct(product2);
-//        bedrijfVoorraad.addProduct(product2);
-//        bedrijfVoorraad.addProduct(product2);
-//        bedrijfVoorraad.addProduct(product3);
-//
-//        VoorraadManager.bekijkVoorraad(bedrijfVoorraad);
-//
-//        Klant klant = new Klant("Thijs", "Yeet@yeet.com", new Adres("Nederland", "Zuid-Holland", "Alphen aan den Rijn", "Zeewinde", 90), 10000);
-//        Bedrijf bedrijf = new Bedrijf("Yeetco", bedrijfVoorraad, new Adres("Nederland", "Zuid-Holland", "Alphen aan den Rijn", "yeetlaan", 69));
-//
-//        Bestelling bestelling = new Bestelling(1, klant, bedrijf);
-//        bestelling.addProduct(product1);
-//        bestelling.addProduct(product2);
-//        bestelling.addProduct(product3);
-//
-//        BestellingManager.bekijkBestelling(bestelling);
-//
-//        System.out.println("Dit kunnen we kopen: ");
-//        ArrayList<Product> kopen = BestellingManager.kanKopen(bestelling, bedrijfVoorraad);
-//        for(Product product : kopen) {
-//            System.out.println(product.getNaam());
-//        }
-//
-//        clearScreen();
-//        BestellingManager.koopProducten(bestelling, bedrijfVoorraad);
-//        Shopping.startShopping();

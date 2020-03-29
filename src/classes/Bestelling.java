@@ -1,7 +1,5 @@
 package classes;
 
-import Core.Main;
-import managers.AdresManager;
 import managers.ProductManager;
 
 import java.util.ArrayList;
@@ -9,7 +7,7 @@ import java.util.ArrayList;
 public class Bestelling {
     // Dit heeft elke bestelling
     private int klantId;
-    private int leverancierId;
+    private ArrayList<Bedrijf> bedrijven;
     private int geschatteLevertijdInDagen;
 
     // Dit verschilt per bestelling
@@ -17,9 +15,9 @@ public class Bestelling {
     private float totaleStonks = 0.0f;
 
     // Constructor
-    public Bestelling(int klantId, int leverancierId) {
+    public Bestelling(int klantId, ArrayList<Bedrijf> bedrijven) {
         this.klantId = klantId;
-        this.leverancierId = leverancierId;
+        this.bedrijven = bedrijven;
     }
 
     // Voeg een product toe
@@ -43,14 +41,14 @@ public class Bestelling {
         this.geschatteLevertijdInDagen = geschatteLevertijdInDagen;
     }
 
-    public ArrayList<Product> getProducten(){
+    public int getKlantId() {
+        return this.klantId;
+    }
+
+    public ArrayList<Product> getProducten() {
         return this.producten;
     }
-//
-//    public Klant getKlantId() {
-//        return this.klantId;
-//    }
-//
+
     public int getGeschatteLevertijdInDagen() {
         return this.geschatteLevertijdInDagen;
     }
@@ -58,8 +56,4 @@ public class Bestelling {
     public float getTotaleStonks() {
         return this.totaleStonks;
     }
-//
-//    public Bedrijf getLeverancier() {
-//        return this.leverancier;
-//    }
 }
