@@ -6,6 +6,7 @@ import classes.Product;
 import classes.Voorraad;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class MainManager {
@@ -101,6 +102,8 @@ public class MainManager {
         // Kies een bedrijf
         ArrayList<Bedrijf> bedijvenDieHetHebben = bedrijfsBerichten(bedrijven, productNaam);
         System.out.println("Het product " + productNaam + " is te verkrijgen bij de volgende bedrijven: ");
+        ArrayList<Float> kostLevertijdRatio = new ArrayList<Float>();
+
         for(int j = 0; j < bedijvenDieHetHebben.size(); j++) {
             int geschatteLevertijd = AdresManager.BerekenLevertijd(bedijvenDieHetHebben.get(j).getAdres(), klant.getAdres());
             Voorraad voorraad = bedijvenDieHetHebben.get(j).getVoorraad();
@@ -108,8 +111,15 @@ public class MainManager {
             for(Product product : producten) {
                 if(product.getNaam() == productNaam) {
                     System.out.println((j + 1) + " : " + bedijvenDieHetHebben.get(j).getNaam() + ", €" + product.getPrijs() + ", met als geschatte levertijd " + geschatteLevertijd + " dagen.");
-
+                    float berekeningRatio = geschatteLevertijd / product.getPrijs();
+                    kostLevertijdRatio.add(berekeningRatio);
                 }
+            }
+        }
+        Float besteRatio = Collections.min(kostLevertijdRatio);
+        for (int i = 0; i < bedijvenDieHetHebben.size(); i++) {
+            if (besteRatio == kostLevertijdRatio.get(i)) {
+                System.out.println("Allibaba's Keuze: " + bedijvenDieHetHebben.get(i).getNaam());
             }
         }
 
@@ -169,6 +179,7 @@ public class MainManager {
     public static void voorraadBekijken(ArrayList<Bedrijf> bedrijven) {
         for (Bedrijf bedrijf : bedrijven) {
             System.out.println(bedrijf.getNaam() + ":" );
+            System.out.println("Omzet: " + bedrijf.getOmzet());
             System.out.println("Voorraad:");
             for (Product product : bedrijf.getVoorraad().getProducten()) {
                 System.out.println(product.getNaam() + ", €" + product.getPrijs());

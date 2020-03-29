@@ -41,4 +41,8 @@ public class Bedrijf {
     public String getNaam() {
         return this.naam;
     }
+
+    public float getOmzet() {
+        return this.omzet;
+    }
 }
