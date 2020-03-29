@@ -12,11 +12,12 @@ public class BestellingManager {
     //TODO count producten, dus als je een product 2 keer besteld staat er 2x productNaam
     public static void bekijkBestelling(Bestelling bestelling) {
 //        System.out.println("Dit is de bestelling van: " + bestelling.getKlant().getNaam());
-        System.out.println("De geschatte levertijd van de bestelling is: " + bestelling.getGeschatteLevertijdInDagen());
+        System.out.println("De maximale levertijd van de bestelling is: " + bestelling.getGeschatteLevertijdInDagen());
         System.out.println("De bestelling bevat de volgende product(en): ");
         for (Product product : bestelling.getProducten()) {
             System.out.println(product.getNaam() + ", €" + product.getPrijs());
         }
+        System.out.println("De totale prijs is: €" + bestelling.getTotaleStonks());
     }
 
    public static boolean heeftGenoegGeld(ArrayList<Klant> klanten, Bestelling bestelling) {

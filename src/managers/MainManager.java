@@ -165,4 +165,15 @@ public class MainManager {
             System.out.println("");
         }
     }
+
+    public static void voorraadBekijken(ArrayList<Bedrijf> bedrijven) {
+        for (Bedrijf bedrijf : bedrijven) {
+            System.out.println(bedrijf.getNaam() + ":" );
+            System.out.println("Voorraad:");
+            for (Product product : bedrijf.getVoorraad().getProducten()) {
+                System.out.println(product.getNaam() + ", €" + product.getPrijs());
+            }
+            System.out.println("");
+        }
+    }
 }
