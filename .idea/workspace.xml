@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8533163b-d5c9-4133-92e0-91847c58a60a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/managers/MainManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Bedrijf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Bedrijf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Bestelling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Bestelling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/managers/BestellingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/BestellingManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/managers/KlantManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/KlantManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/managers/ProductManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/ProductManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +69,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1585383191093</updated>
-      <workItem from="1585383194474" duration="15571000" />
+      <workItem from="1585383194474" duration="29447000" />
+      <workItem from="1585484850662" duration="2047000" />
     </task>
     <servers />
   </component>
@@ -90,22 +86,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585383275462" />
-    <state width="1876" height="304" key="GridCell.Tab.0.bottom" timestamp="1585405547628">
+    <state width="1876" height="304" key="GridCell.Tab.0.bottom" timestamp="1585486830588">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="304" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585405547628" />
-    <state width="1876" height="304" key="GridCell.Tab.0.center" timestamp="1585405547628">
+    <state width="1876" height="304" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585486830588" />
+    <state width="1876" height="304" key="GridCell.Tab.0.center" timestamp="1585486830587">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="304" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585405547628" />
-    <state width="1876" height="304" key="GridCell.Tab.0.left" timestamp="1585405547628">
+    <state width="1876" height="304" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585486830587" />
+    <state width="1876" height="304" key="GridCell.Tab.0.left" timestamp="1585486830587">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="304" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585405547628" />
-    <state width="1876" height="304" key="GridCell.Tab.0.right" timestamp="1585405547628">
+    <state width="1876" height="304" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585486830587" />
+    <state width="1876" height="304" key="GridCell.Tab.0.right" timestamp="1585486830587">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="304" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585405547628" />
+    <state width="1876" height="304" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585486830587" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1585383595217">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

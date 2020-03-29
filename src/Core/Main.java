@@ -17,7 +17,7 @@ public class Main {
 
         // Klanten sjit
 
-        Klant klant1 = new Klant("Thijs", "Yeet@yeet.com", new Adres("Nederland", "Zuid-Holland", "Alphen aan den Rijn", "Zeewinde", 90), 10000);
+        Klant klant1 = new Klant("Thijs", "Yeet@yeet.com", new Adres("Nederland", "Zuid-Holland", "Alphen aan den Rijn", "Zeewinde", 90), 10);
         Klant klant2 = new Klant("Henk", "Yeet@yeet.com", new Adres("Nederland", "Zuid-Holland", "Alphen aan den Rijn", "Zeewinde", 90), 10000);
         Klant klant3 = new Klant("Yayeet", "Yeet@yeet.com", new Adres("Nederland", "Zuid-Holland", "Alphen aan den Rijn", "Zeewinde", 90), 10000);
 
@@ -82,12 +82,15 @@ public class Main {
 
         ArrayList<Product> totaleVoorraad = MainManager.getTotaleVoorraad(bedrijven);
         ArrayList<Bedrijf> bedrijfsVoorraad = bedrijven;
-//        ArrayList<Product> winkelwagen = MainManager.productenKiezen(klant, bedrijven);
+
+        // De gekozen producten en hun bedrijven
         ArrayList<Product> winkelwagen = new ArrayList<Product>();
         ArrayList<Bedrijf> gekozenBedrijven = new ArrayList<Bedrijf>();
+
         String antwoord;
         Scanner s = new Scanner(System.in);
         do {
+            MainManager.clearScreen(false);
             Product gekozenProduct = MainManager.kiesProduct(klant, bedrijfsVoorraad);
             Bedrijf gekozenBedrijf = MainManager.kiesBedrijf(klant, bedrijfsVoorraad, gekozenProduct.getNaam());
             gekozenBedrijven.add(gekozenBedrijf);
@@ -96,40 +99,63 @@ public class Main {
                 if (bedrijfsVoorraad.get(i).getNaam() == gekozenBedrijf.getNaam()) {
                     Voorraad voorraad = bedrijfsVoorraad.get(i).getVoorraad();
                     ArrayList<Product> bedrijfsProducten = voorraad.getProducten();
+                    Product toRemove = null;
                     for (Product bedrijfProduct : bedrijfsProducten) {
                         if (bedrijfProduct.getNaam() == gekozenProduct.getNaam()) {
                             winkelwagen.add(bedrijfProduct);
-                            ArrayList<Product> nieuweProducten = ProductManager.verwijderProduct(bedrijfsProducten, gekozenProduct.getNaam());
-//                            voorraad.setProducten(nieuweProducten);
-//                            bedrijfsVoorraad.get(i).setVoorraad(voorraad);
+                            toRemove = bedrijfProduct;
                         }
                     }
+                    bedrijfsProducten.remove(toRemove);
                 }
             }
-//            for (int i = 0; i < bedrijfsVoorraad.size(); i++) {
-//                if (bedrijfsVoorraad.get(i).getNaam() == gekozenBedrijf.getNaam()) {
-//                    Voorraad voorraad = bedrijfsVoorraad.get(i).getVoorraad();
-//                    ArrayList<Product> producten = ProductManager.verwijderProduct(voorraad.getProducten(), gekozenProduct.getNaam());
-//                    voorraad.setProducten(producten);
-//                    bedrijfsVoorraad.get(i).setVoorraad(voorraad);
-//                }
-//            }
             System.out.print("Wilt u nog iets bestellen? (Y/N) : ");
             antwoord = s.nextLine().toLowerCase();
         } while (!antwoord.equals("n"));
+
+        MainManager.clearScreen(false);
+
         int klantId = 0;
         for (int i = 0; i < klanten.size(); i++) {
             if (klant.getEmail() == klanten.get(i).getEmail() && klant.getNaam() == klanten.get(i).getNaam()) {
                 klantId = i;
             }
         }
-        System.out.println(klantId);
         Bestelling bestelling = new Bestelling(klantId, gekozenBedrijven);
         for (Product product : winkelwagen) {
             bestelling.addProduct(product);
         }
 
+        // Laat de bestelling zien
         BestellingManager.bekijkBestelling(bestelling);
+
+        // Kijk of de klant genoeg geld heeft.
+        if(BestellingManager.heeftGenoegGeld(klanten, bestelling)) {
+            if(BestellingManager.wilKopen()) {
+                klanten.get(klantId).betalen(bestelling.getTotaleStonks());
+                for(int i = 0; i < bestelling.getProducten().size(); i++) {
+                    // Doe de betalingen
+                    Product currentProduct = bestelling.getProducten().get(i);
+                    ArrayList<Integer> bedrijfIds = BestellingManager.bedrijfNaarId(bedrijven, gekozenBedrijven);
+                    int currentBedrijfId = bedrijfIds.get(i);
+                    bedrijven.get(currentBedrijfId).addStonks(currentProduct.getPrijs());
+
+                    // Haal de producten uit de voorraaden.
+                    Voorraad voorraad = bedrijven.get(currentBedrijfId).getVoorraad();
+                    ArrayList<Product> bedrijfsProducten = voorraad.getProducten();
+                    Product toRemove = null;
+                    for(Product bedrijfsProduct : bedrijfsProducten) {
+                        if(bedrijfsProduct.getNaam() == currentProduct.getNaam()) {
+                            toRemove = bedrijfsProduct;
+                        }
+                    }
+                    bedrijfsProducten.remove(toRemove);
+                    voorraad.setProducten(bedrijfsProducten);
+                    bedrijven.get(currentBedrijfId).setVoorraad(voorraad);
+                }
+            }
+        }
+
 
 
 //        Product product = MainManager.kiesProduct(klant, bedrijven);

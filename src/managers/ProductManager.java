@@ -11,17 +11,15 @@ public class ProductManager {
     }
 
     public static ArrayList<Product> verwijderProduct(ArrayList<Product> products, String productNaam) {
+        ArrayList<Product> toRemove = new ArrayList<Product>();
         for (Product product : products) {
             if (product.getNaam().equals(productNaam)) {
-                try {
-                    products.remove(product);
-                } catch (Exception e) {
-                    System.out.println(e);
-                }
+                toRemove.add(product);
                 break;
             }
         }
-
+        products.removeAll(toRemove);
+        System.out.println(products);
         return products;
     }
 }
