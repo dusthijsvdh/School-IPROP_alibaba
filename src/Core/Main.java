@@ -198,7 +198,10 @@ public class Main {
                             }
                             System.out.println("Uw bestelling is onderweg!");
                         }
+                    } else {
+                        System.out.println("Uw saldo is te laag om deze bestelling te plaatsen.");
                     }
+                    System.out.println("");
                 }
             } else if (antwoord.equals("exit")) {
                 System.out.println("Bedankt voor het gebruiken van ons programma!\n tot een volgende keer!");

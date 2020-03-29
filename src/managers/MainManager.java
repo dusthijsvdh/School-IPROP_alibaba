@@ -13,7 +13,7 @@ public class MainManager {
     // Vraag naar de klant
     public static int welkeKlant(ArrayList<Klant> klanten) {
         for(int i = 0; i < klanten.size(); i++) {
-            System.out.println((i + 1) + " : " + klanten.get(i).getNaam());
+            System.out.println((i + 1) + " : " + klanten.get(i).getNaam() + ", Saldo: €" + klanten.get(i).getVermogen());
         }
         Scanner s = new Scanner(System.in);
         int id;
